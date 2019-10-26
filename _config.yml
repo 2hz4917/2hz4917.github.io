@@ -3,12 +3,12 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
+title: 2hz4917
 subtitle:
 description:
 keywords:
-author: John Doe
-language: en
+author: 2hz4917
+language: zh
 timezone:
 
 # URL
@@ -84,9 +84,18 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: landscape
+theme: ace
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
-deploy: master
-  type:
+deploy:
+  - type: git
+    repo: https://github.com/2hz4917/2hz4917.github.io.git
+    branch: master
+  - type: git
+    repo: https://github.com/2hz4917/2hz4917.github.io.git
+    branch: hexo
+    extend_dirs: /
+    ignore_hidden: false
+    ignore_pattern:
+		public: .
