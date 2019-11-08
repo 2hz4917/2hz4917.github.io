@@ -14,11 +14,11 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          go.js插件使用总结 - null
+          
         
     </title>
 
-    <link rel="canonical" href="http://yoursite.com/2019/10/26/go-js插件使用总结/">
+    <link rel="canonical" href="http://yoursite.com/tags/Hexo/">
 
     <!-- Bootstrap Core CSS -->
 
@@ -101,21 +101,13 @@
 			
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1" style="z-index:2;">
                 
-                    <div class="post-heading" style="padding:40px">
-                        <div class="tags">
-                            
-                              <a class="tag" href="/tags/#go.js" title="go.js">go.js</a>
-                            
-                              <a class="tag" href="/tags/#可视化" title="可视化">可视化</a>
-                            
-                        </div>
-                        <h1>go.js插件使用总结</h1>
-                        <h2 class="subheading"></h2>
-                        <span class="meta">
-                            Posted by 2hz4917 on
-                            2019-10-26
-                        </span>
+				
+                    <div class="site-heading"  style="padding:40px">
+                        <h1>2hz4917</h1>
+                        <!--<hr class="small">-->
+                        <span class="subheading"></span>
                     </div>
+                
                 
                 </div>
             </div>
@@ -191,146 +183,254 @@
 
 
     <!-- Main Content -->
-    <!-- Modify by Yu-Hsuan Yen -->
+    <!-- Main Content -->
+<div class="container">
+    <div class="row">
+        
 
-<!-- Post Content -->
-<article>
-    <div class="container">
-        <div class="row">
-
-            <!-- Post Container -->
+<!-- USE SIDEBAR -->
+    <!-- Post Container -->
             <div class="
-                col-lg-8 col-lg-offset-2
-                col-md-10 col-md-offset-1
-                post-container">
-
-                <h1 id="最近工作项目中用到了go-js的流程图插件，各种设置参数还不是很明白，故在此作一个小结"><a href="#最近工作项目中用到了go-js的流程图插件，各种设置参数还不是很明白，故在此作一个小结" class="headerlink" title="最近工作项目中用到了go.js的流程图插件，各种设置参数还不是很明白，故在此作一个小结"></a>最近工作项目中用到了go.js的流程图插件，各种设置参数还不是很明白，故在此作一个小结</h1><h2 id="go-js是一个使用canvas绘制流程图的js插件。"><a href="#go-js是一个使用canvas绘制流程图的js插件。" class="headerlink" title="go.js是一个使用canvas绘制流程图的js插件。"></a>go.js是一个使用canvas绘制流程图的js插件。</h2><p><a href="https://gojs.net/latest/intro/layouts.html" target="_blank" rel="noopener">Layout</a><br>流程的布局方式有很多种：<br>GridLayout<br>网格布局，整个画布被分为无数个单元格，节点默认在小格子内</p>
-<ul>
-<li>TreeLayout<br>树状布局，类似二叉树的那样一层层往下<br>ForceDirectedLayout<br>力导向布局<br>LayeredDigraphLayout<br>分层有向图布局<br>CircularLayout<br>循环布局，节点之前可能头尾相连</li>
-</ul>
-<p><a href="https://gojs.net/latest/api/symbols/GraphObject.html" target="_blank" rel="noopener">GraphObject</a><br>有图表对象才能构成一个图表</p>
-<p>Panel<br>面板将其他GraphObjects作为其元素。面板的元素按它们在元素集合中出现的顺序绘制。<br>Shape<br>图形单元，绘制出自己想要的图形<br>TextBlock<br>文本域块，定义之后可以显示文字<br>Picture<br>可以展示图片或者是视频帧<br>Placeholder<br>没有使用过</p>
-<p><a href="https://gojs.net/latest/api/symbols/Panel.html" target="_blank" rel="noopener">Panel</a><br>面板中就是着重要讲的节点了，它也分为好多种布局方式，这里的布局是节点内的元素布局，每个Panel都有一个类型并建立自己的坐标系。Panel的类型决定了它的大小和排列：<br>Position =&gt; 定位方式排列元素，每个元素都有自己的坐标<br>Vertical/Horizontal =&gt; 水平对齐或者垂直对齐排列<br>Table =&gt; 元素在表格单元格内依次排列<br>| 标题  | :tw-1f1fd:  |<br>| ———— | ———— |<br>| —内容– |<br>也可以对行列进行跨行或跨列的定义<br>Grid =&gt; 依据网格线对元素进行排列<br>Auto =&gt; 不对元素排列方式做限制，元素以默认从上倒下的方式排列<br>Link =&gt; 线条是一种特殊的面板，这个之后再介绍<br>其他没有说明的，在项目中没有实际用到，需要的时候可以自行查询API</p>
-<p><a href="https://gojs.net/latest/api/symbols/Part.html" target="_blank" rel="noopener">Part</a><br>part继承自panel，所以其他GraphObject的其他元素一般都在这里展示。</p>
-<p>接下来的Node和Part类似，所以不过多介绍。但是需要讲一下节点模板<code>NodeTemplateMap</code>，模板是定义了一种类节点，想创建节点的时候，只需要通过调用对应类名的节点模板，就可以在画布上看到节点。</p>
-<p>Diagram<br>画布作为节点的容器，框架对其做了较为严格的限制，通过绑定id，GoJS就可以初始化，定义画布。画布主要分为两部分，一是节点，二是连线。节点即上面所说节点模板，连线上面也提到过，是一种特殊的节点，<code>linkTemplate</code>是用来定义连线模板的，里面可以对连线进行一些设置，比如连线方式，转角角度，曲度以及颜色等属性。</p>
-
+                col-lg-8 col-lg-offset-1
+                col-md-8 col-md-offset-1
+                col-sm-12
+                col-xs-12
+                post-container
+            ">
+            
+	        
                 
+<!-- Main Content -->
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <!-- 归档列表 -->
+            
+            
 
-                <hr>
-                <!-- Pager -->
-                <ul class="pager">
-                    
-                        <li class="previous">
-                            <a href="/2019/10/26/Hexo使用方法/" data-toggle="tooltip" data-placement="top" title="Hexo使用方法">&larr; Previous post</a>
-                        </li>
-                    
-                    
-                        <li class="next">
-                            <a href="/2019/10/26/2018/06/04/巨硬-收购GitHub/index/" data-toggle="tooltip" data-placement="top" title="2018/06/04/巨硬-收购GitHub/index">Next post &rarr;</a>
-                        </li>
-                    
+             <!-- 归档列表 -->
+
+            
+            <div class="one-tag-list">
+                <span class="fa fa-calendar-times-o listing-seperator" id="2019">
+                    <span class="tag-text">2019</span>
+                </span>
+                <ul>
+                
+                  <!-- <li class="listing-item">
+                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                  </li> -->
+                 <li >
+                    10-26
+                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+                    <a href="/2019/10/26/Hexo使用方法/" style="color: #0085a1">
+                        <span>
+                            Hexo使用方法
+                        </span>
+                    </a>
+                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+                </li>
+                
+                  <!-- <li class="listing-item">
+                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                  </li> -->
+                 <li >
+                    10-26
+                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+                    <a href="/2019/10/26/go-js插件使用总结/" style="color: #0085a1">
+                        <span>
+                            go.js插件使用总结
+                        </span>
+                    </a>
+                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+                </li>
+                
+                  <!-- <li class="listing-item">
+                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                  </li> -->
+                 <li >
+                    10-26
+                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+                    <a href="/2019/10/26/2018/06/04/巨硬-收购GitHub/index/" style="color: #0085a1">
+                        <span>
+                            2018/06/04/巨硬-收购GitHub/index
+                        </span>
+                    </a>
+                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+                </li>
+                
+                  <!-- <li class="listing-item">
+                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                  </li> -->
+                 <li >
+                    10-26
+                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+                    <a href="/2019/10/26/2018/05/24/Can-I-Push-To-Github/index/" style="color: #0085a1">
+                        <span>
+                            2018/05/24/Can-I-Push-To-Github/index
+                        </span>
+                    </a>
+                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+                </li>
+                
+                  <!-- <li class="listing-item">
+                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                  </li> -->
+                 <li >
+                    10-24
+                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+                    <a href="/2019/10/24/hello-world/" style="color: #0085a1">
+                        <span>
+                            Hello World
+                        </span>
+                    </a>
+                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+                </li>
+                
                 </ul>
-
-                <br>
-
-                <!--打赏-->
-                
-                <!--打赏-->
-
-                <br>
-                <!--分享-->
-                
-                    <div class="social-share"  data-wechat-qrcode-helper="" align="center"></div>
-                    <!--  css & js -->
-                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
-                    <script src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
-                
-                <!--分享-->
-                <br>                       
-                
-                <!-- require APlayer -->
-                
-
-                <!-- disqus comment start -->
-                
-                <!-- disqus comment end -->
-
-                
-				
             </div>
+            
 
-            <!-- Tabe of Content -->
-            <!-- Table of Contents -->
 
-                
-            <!-- Sidebar Container -->
-            <div class="
-                col-lg-8 col-lg-offset-2
-                col-md-10 col-md-offset-1
-                sidebar-container">
-
-                <!-- Featured Tags -->
-                
-                <section>
-                    <!-- no hr -->
-                    <h5><a href="/tags/">Tags</a></h5>
-                    <div class="tags">
-                       
-                          <a class="tag" href="/tags/#go.js" title="go.js">go.js</a>
-                        
-                          <a class="tag" href="/tags/#可视化" title="可视化">可视化</a>
-                        
-                    </div>
-                </section>
-                
-
-                <!-- Friends Blog -->
-                
-            </div>
         </div>
     </div>
-</article>
+</div>
+            
 
 
 
+                <!-- 如果开启评论功能 -->
+                
+            </div>
+
+          <!-- Sidebar Container -->
+<div class="
+    col-lg-3 col-lg-offset-0
+    col-md-3 col-md-offset-0
+    col-sm-12
+    col-xs-12
+    sidebar-container
+">
+    
+        <!-- Featured Tags -->
+
+<section>
+    <!-- no hr -->
+    <h5><a href="/tags/">Tags</a></h5>
+    <div class="tags">
+        
+            
+            <a href="/tags/#go.js" title="go.js" rel="1">go.js</a>
+            
+        
+            
+            <a href="/tags/#可视化" title="可视化" rel="1">可视化</a>
+            
+        
+            
+            <a href="/tags/#Hexo" title="Hexo" rel="1">Hexo</a>
+            
+        
+            
+            <a href="/tags/#技巧" title="技巧" rel="1">技巧</a>
+            
+        
+    </div>
+</section>
+
+        <hr>
+    
+        <!-- Short About -->
+<section class="visible-md visible-lg">
+    <h5><a href="/about/">About me</a></h5>
+    <div class="short-about">
+
+        
+            <img id = "avatar_pic" src="https://avatars0.githubusercontent.com/u/15519966?s=40&amp;v=4" />
+        
+
+        
+            <p>JUST WORK HARD!</p>
+        
+
+        <!-- SNS Link -->
+        <ul class="list-inline">
+            
+            
+            
+
+            
+
+            
+
+            
+                <li>
+                    <a target="_blank"  href="https://github.com/2hz4917">
+                        <span class="fa-stack fa-lg">
+                            <i class="fa fa-circle fa-stack-2x"></i>
+                            <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                        </span>
+                    </a>
+                </li>
+            
+            
+            
+            
+        </ul>
+    </div>
+</section>
+
+        <hr>
+    
+        
+  <h5>Recent posts</h3>
+  <div class="widget">
+    <ul>
+      
+        <li>
+          <a href="/2019/10/26/Hexo%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/">Hexo使用方法</a>
+        </li>
+      
+        <li>
+          <a href="/2019/10/26/go-js%E6%8F%92%E4%BB%B6%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/">go.js插件使用总结</a>
+        </li>
+      
+        <li>
+          <a href="/2019/10/26/2018/06/04/%E5%B7%A8%E7%A1%AC-%E6%94%B6%E8%B4%ADGitHub/index/">2018/06/04/巨硬-收购GitHub/index</a>
+        </li>
+      
+        <li>
+          <a href="/2019/10/26/2018/05/24/Can-I-Push-To-Github/index/">2018/05/24/Can-I-Push-To-Github/index</a>
+        </li>
+      
+        <li>
+          <a href="/2019/10/24/hello-world/">Hello World</a>
+        </li>
+      
+    </ul>
+  </div>
+
+        <hr>
+    
+        
+    <h5>Achives</h5>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a><span class="archive-list-count">5</span></li></ul>
+    </div>
+
+        <hr>
+    
+</div>
 
 
-
-<!-- async load function -->
-<script>
-    function async(u, c) {
-      var d = document, t = 'script',
-          o = d.createElement(t),
-          s = d.getElementsByTagName(t)[0];
-      o.src = u;
-      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
-      s.parentNode.insertBefore(o, s);
-    }
-</script>
-<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
-<script>
-    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
-        anchors.options = {
-          visible: 'hover',
-          placement: 'left',
-          icon: 'ℬ'
-        };
-        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
-    })
-</script>
-<style>
-    /* place left on bigger screen */
-    @media all and (min-width: 800px) {
-        .anchorjs-link{
-            position: absolute;
-            left: -0.75em;
-            font-size: 1.1em;
-            margin-top : -0.1em;
-        }
-    }
-</style>
-
+        
+    </div>
+</div>
 
 
     <!-- Footer -->
@@ -435,7 +535,7 @@
 <script>
     // only load tagcloud.js in tag.html
     if($('#tag_cloud').length !== 0){
-        async("http://yoursite.com/2019/10/26/go-js%E6%8F%92%E4%BB%B6%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/index.html/js/jquery.tagcloud.js",function(){
+        async("http://yoursite.com/tags/Hexo/index.html/js/jquery.tagcloud.js",function(){
             $.fn.tagcloud.defaults = {
                 //size: {start: 1, end: 1, unit: 'em'},
                 color: {start: '#bbbbee', end: '#0085a1'},

@@ -14,11 +14,11 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          go.js插件使用总结 - null
+          Hexo使用方法 - null
         
     </title>
 
-    <link rel="canonical" href="http://yoursite.com/2019/10/26/go-js插件使用总结/">
+    <link rel="canonical" href="http://yoursite.com/2019/10/26/Hexo使用方法/">
 
     <!-- Bootstrap Core CSS -->
 
@@ -104,12 +104,12 @@
                     <div class="post-heading" style="padding:40px">
                         <div class="tags">
                             
-                              <a class="tag" href="/tags/#go.js" title="go.js">go.js</a>
+                              <a class="tag" href="/tags/#Hexo" title="Hexo">Hexo</a>
                             
-                              <a class="tag" href="/tags/#可视化" title="可视化">可视化</a>
+                              <a class="tag" href="/tags/#技巧" title="技巧">技巧</a>
                             
                         </div>
-                        <h1>go.js插件使用总结</h1>
+                        <h1>Hexo使用方法</h1>
                         <h2 class="subheading"></h2>
                         <span class="meta">
                             Posted by 2hz4917 on
@@ -204,16 +204,26 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h1 id="最近工作项目中用到了go-js的流程图插件，各种设置参数还不是很明白，故在此作一个小结"><a href="#最近工作项目中用到了go-js的流程图插件，各种设置参数还不是很明白，故在此作一个小结" class="headerlink" title="最近工作项目中用到了go.js的流程图插件，各种设置参数还不是很明白，故在此作一个小结"></a>最近工作项目中用到了go.js的流程图插件，各种设置参数还不是很明白，故在此作一个小结</h1><h2 id="go-js是一个使用canvas绘制流程图的js插件。"><a href="#go-js是一个使用canvas绘制流程图的js插件。" class="headerlink" title="go.js是一个使用canvas绘制流程图的js插件。"></a>go.js是一个使用canvas绘制流程图的js插件。</h2><p><a href="https://gojs.net/latest/intro/layouts.html" target="_blank" rel="noopener">Layout</a><br>流程的布局方式有很多种：<br>GridLayout<br>网格布局，整个画布被分为无数个单元格，节点默认在小格子内</p>
-<ul>
-<li>TreeLayout<br>树状布局，类似二叉树的那样一层层往下<br>ForceDirectedLayout<br>力导向布局<br>LayeredDigraphLayout<br>分层有向图布局<br>CircularLayout<br>循环布局，节点之前可能头尾相连</li>
-</ul>
-<p><a href="https://gojs.net/latest/api/symbols/GraphObject.html" target="_blank" rel="noopener">GraphObject</a><br>有图表对象才能构成一个图表</p>
-<p>Panel<br>面板将其他GraphObjects作为其元素。面板的元素按它们在元素集合中出现的顺序绘制。<br>Shape<br>图形单元，绘制出自己想要的图形<br>TextBlock<br>文本域块，定义之后可以显示文字<br>Picture<br>可以展示图片或者是视频帧<br>Placeholder<br>没有使用过</p>
-<p><a href="https://gojs.net/latest/api/symbols/Panel.html" target="_blank" rel="noopener">Panel</a><br>面板中就是着重要讲的节点了，它也分为好多种布局方式，这里的布局是节点内的元素布局，每个Panel都有一个类型并建立自己的坐标系。Panel的类型决定了它的大小和排列：<br>Position =&gt; 定位方式排列元素，每个元素都有自己的坐标<br>Vertical/Horizontal =&gt; 水平对齐或者垂直对齐排列<br>Table =&gt; 元素在表格单元格内依次排列<br>| 标题  | :tw-1f1fd:  |<br>| ———— | ———— |<br>| —内容– |<br>也可以对行列进行跨行或跨列的定义<br>Grid =&gt; 依据网格线对元素进行排列<br>Auto =&gt; 不对元素排列方式做限制，元素以默认从上倒下的方式排列<br>Link =&gt; 线条是一种特殊的面板，这个之后再介绍<br>其他没有说明的，在项目中没有实际用到，需要的时候可以自行查询API</p>
-<p><a href="https://gojs.net/latest/api/symbols/Part.html" target="_blank" rel="noopener">Part</a><br>part继承自panel，所以其他GraphObject的其他元素一般都在这里展示。</p>
-<p>接下来的Node和Part类似，所以不过多介绍。但是需要讲一下节点模板<code>NodeTemplateMap</code>，模板是定义了一种类节点，想创建节点的时候，只需要通过调用对应类名的节点模板，就可以在画布上看到节点。</p>
-<p>Diagram<br>画布作为节点的容器，框架对其做了较为严格的限制，通过绑定id，GoJS就可以初始化，定义画布。画布主要分为两部分，一是节点，二是连线。节点即上面所说节点模板，连线上面也提到过，是一种特殊的节点，<code>linkTemplate</code>是用来定义连线模板的，里面可以对连线进行一些设置，比如连线方式，转角角度，曲度以及颜色等属性。</p>
+                <h1 id="最近重新开始写起Blog，用的还是之前的框架，快速生成博客–Hexo，距离上次部署到Github已经过去很久了，所以为了防止自己下一次部署的时候，忘记操作步骤，在这记录一下使用方法。"><a href="#最近重新开始写起Blog，用的还是之前的框架，快速生成博客–Hexo，距离上次部署到Github已经过去很久了，所以为了防止自己下一次部署的时候，忘记操作步骤，在这记录一下使用方法。" class="headerlink" title="最近重新开始写起Blog，用的还是之前的框架，快速生成博客–Hexo，距离上次部署到Github已经过去很久了，所以为了防止自己下一次部署的时候，忘记操作步骤，在这记录一下使用方法。"></a>最近重新开始写起Blog，用的还是之前的框架，快速生成博客–Hexo，距离上次部署到Github已经过去很久了，所以为了防止自己下一次部署的时候，忘记操作步骤，在这记录一下使用方法。</h1><p>写在正文前，由于Hexo版本更新问题，可能会有部分方法不适用所有情况。</p>
+<h2 id="正文开始"><a href="#正文开始" class="headerlink" title="正文开始"></a>正文开始</h2><h3 id="为了更加方便的管理Hexo的源文件和目标文件，我们这里采用了创建两个分支的方法。一个分支用来存放Hexo生成的网站原始的文件，另一个分支用来存放生成的静态网页。"><a href="#为了更加方便的管理Hexo的源文件和目标文件，我们这里采用了创建两个分支的方法。一个分支用来存放Hexo生成的网站原始的文件，另一个分支用来存放生成的静态网页。" class="headerlink" title="为了更加方便的管理Hexo的源文件和目标文件，我们这里采用了创建两个分支的方法。一个分支用来存放Hexo生成的网站原始的文件，另一个分支用来存放生成的静态网页。"></a>为了更加方便的管理Hexo的源文件和目标文件，我们这里采用了创建两个分支的方法。一个分支用来存放Hexo生成的网站原始的文件，另一个分支用来存放生成的静态网页。</h3><p>– 具体操作步骤</p>
+<ol>
+<li>创建一个 <a href="https://github.com/2hz4917/2hz4917.github.io" target="_blank" rel="noopener">yourname.github.io</a></li>
+<li>再创建一个hexo分支，并将其设置为默认分支（master分支默认已存在）</li>
+<li>git clone <a href="https://github.com/2hz4917/2hz4917.github.io.git" target="_blank" rel="noopener">https://github.com/2hz4917/2hz4917.github.io.git</a> 克隆仓库</li>
+<li>git checkout hexo 切换到hexo分支，依次执行cnpm i hexo、hexo init、cnpm i 和 cnpm i hexo-deployer-git</li>
+<li>修改_config.yml中的deploy字段，内容如下<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">- type: git</span><br><span class="line">    repo: https:<span class="comment">//github.com/2hz4917/2hz4917.github.io.git</span></span><br><span class="line">    branch: master</span><br><span class="line">- type: git</span><br><span class="line">    repo: https:<span class="comment">//github.com/2hz4917/2hz4917.github.io.git</span></span><br><span class="line">    branch: hexo</span><br><span class="line">    extend_dirs: <span class="regexp">/</span></span><br><span class="line"><span class="regexp">    ignore_hidden: false</span></span><br><span class="line"><span class="regexp">    ignore_pattern:</span></span><br><span class="line"><span class="regexp">    public:</span></span><br></pre></td></tr></table></figure></li>
+<li>git push origin hexo 执行命令提交文件到远程</li>
+<li>hexo g -d 执行命令生成静态网站（会自动部署到master分支）</li>
+<li>补充：hexo g -d 可以分解为 hexo g，hexo d。hexo d就是把public文件夹下的文件替换掉master的文件<h3 id="以上这些操作就基本完成了hexo博客的部署"><a href="#以上这些操作就基本完成了hexo博客的部署" class="headerlink" title="以上这些操作就基本完成了hexo博客的部署"></a>以上这些操作就基本完成了hexo博客的部署</h3></li>
+</ol>
+<h2 id="这里是Hexo主题-的使用，找了一个ACE的主题，链接在此-，按照步骤来就行。"><a href="#这里是Hexo主题-的使用，找了一个ACE的主题，链接在此-，按照步骤来就行。" class="headerlink" title="这里是Hexo主题 的使用，找了一个ACE的主题，链接在此 ，按照步骤来就行。"></a>这里是<a href="https://hexo.io/themes/" target="_blank" rel="noopener">Hexo主题</a> 的使用，找了一个ACE的主题，<a href="https://github.com/kinggozhang/hexo-theme-ace" target="_blank" rel="noopener">链接在此</a> ，按照步骤来就行。</h2><h2 id="最后讲一下Hexo的各种命令，权当简单版的cheatSheet。"><a href="#最后讲一下Hexo的各种命令，权当简单版的cheatSheet。" class="headerlink" title="最后讲一下Hexo的各种命令，权当简单版的cheatSheet。"></a>最后讲一下Hexo的各种命令，权当简单版的cheatSheet。</h2><h3 id="创建新的一篇新的博客文章"><a href="#创建新的一篇新的博客文章" class="headerlink" title="创建新的一篇新的博客文章"></a>创建新的一篇新的博客文章</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new &quot;postName&quot;</span><br></pre></td></tr></table></figure>
+
+<h3 id="清除本地站点文件夹下的缓存文件（db-json）和已有的静态文件（public）"><a href="#清除本地站点文件夹下的缓存文件（db-json）和已有的静态文件（public）" class="headerlink" title="清除本地站点文件夹下的缓存文件（db.json）和已有的静态文件（public）"></a>清除本地站点文件夹下的缓存文件（db.json）和已有的静态文件（public）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br></pre></td></tr></table></figure>
+
+<h3 id="生成静态文件"><a href="#生成静态文件" class="headerlink" title="生成静态文件"></a>生成静态文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo generate(同 hexo g)</span><br></pre></td></tr></table></figure>
+
+<h3 id="本地预览"><a href="#本地预览" class="headerlink" title="本地预览"></a>本地预览</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo start(同 hexo s)</span><br></pre></td></tr></table></figure>
+<p>会在本地开启<a href="http://localhost:4000" target="_blank" rel="noopener">服务</a></p>
 
                 
 
@@ -221,13 +231,9 @@
                 <!-- Pager -->
                 <ul class="pager">
                     
-                        <li class="previous">
-                            <a href="/2019/10/26/Hexo使用方法/" data-toggle="tooltip" data-placement="top" title="Hexo使用方法">&larr; Previous post</a>
-                        </li>
-                    
                     
                         <li class="next">
-                            <a href="/2019/10/26/2018/06/04/巨硬-收购GitHub/index/" data-toggle="tooltip" data-placement="top" title="2018/06/04/巨硬-收购GitHub/index">Next post &rarr;</a>
+                            <a href="/2019/10/26/go-js插件使用总结/" data-toggle="tooltip" data-placement="top" title="go.js插件使用总结">Next post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -277,9 +283,9 @@
                     <h5><a href="/tags/">Tags</a></h5>
                     <div class="tags">
                        
-                          <a class="tag" href="/tags/#go.js" title="go.js">go.js</a>
+                          <a class="tag" href="/tags/#Hexo" title="Hexo">Hexo</a>
                         
-                          <a class="tag" href="/tags/#可视化" title="可视化">可视化</a>
+                          <a class="tag" href="/tags/#技巧" title="技巧">技巧</a>
                         
                     </div>
                 </section>
@@ -435,7 +441,7 @@
 <script>
     // only load tagcloud.js in tag.html
     if($('#tag_cloud').length !== 0){
-        async("http://yoursite.com/2019/10/26/go-js%E6%8F%92%E4%BB%B6%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/index.html/js/jquery.tagcloud.js",function(){
+        async("http://yoursite.com/2019/10/26/Hexo%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/index.html/js/jquery.tagcloud.js",function(){
             $.fn.tagcloud.defaults = {
                 //size: {start: 1, end: 1, unit: 'em'},
                 color: {start: '#bbbbee', end: '#0085a1'},
